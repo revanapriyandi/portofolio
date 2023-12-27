@@ -89,6 +89,17 @@ function registerValidSW(swUrl, config) {
                 config.onSuccess(registration);
               }
             }
+
+             caches.open('your-cache-name').then(cache => {
+              cache.addAll([
+                '/',
+                '/index.html',
+                '/static/css/main.chunk.css',
+                '/static/js/main.chunk.js',
+                '/static/js/0.chunk.js',
+                '/static/js/bundle.js',
+              ]);
+            });
           }
         };
       };
